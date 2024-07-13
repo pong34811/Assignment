@@ -1,84 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Create Book</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
 
-    <!-- Bootstrap CSS v5.2.1 -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-  </head>
+<head>
+  <title>Create Book</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-  <body>
-    <header class="container">
-      <nav>
-        <a href="/">Back</a>
-      </nav>
-    </header>
-    <main class="container">
-        <h1>Create Book</h1>
-      <form action="#" method="post">
-        {% csrf_token %}
-        <div class="mb-3">
-          <label for="">ชื่อหนังสือ( TH )</label>
-          <input type="text" name="book_name_th" id="book_name_th" value ="{{book.book_name_th}}" />
-        </div>
-        <div class="mb-3">
-          <label for="">ชื่อหนังสือ( EN )</label>
-          <input type="text" name="book_name_en" id="book_name_en"  value ="{{book.book_name_en}}" />
-        </div>
-        <div class="mb-3">
-          <label for="">หมายเลข isbn</label>
-          <input type="text" name="number_si" id="number_si" value="{{book.number_si}}" />
-        </div>
-        <div class="mb-3">
-          <label for="">วันที่และเวลาที่ตีพิมพ์</label>
-          <input type="datetime-local" 
-          name="datetime" id="datetime" value="{{book.datetime|date:'Y-m-d\TH:i'}}" />
-        </div>
-        <div class="mb-3">
-          <label for="">รายละเอียดเรื่องย่อของหนังสือ</label>
-          <input type="text" name="detail_book" id="detail_book" value="{{book.detail_book}}" />
-        </div>
-        <div class="mb-3">
-          <label for="bookshop">Choose a car:</label>
-          <select name="bookshop" id="bookshop">
-            <option value="B2S"{% if book.bookshop == 'B2S' %} selected {% endif %}>B2S</option>
-            <option value="Inthon"{% if book.bookshop == 'Inthon' %} selected {% endif %}>นายอินทรย์</option>
-            <option value="Se-ed"{% if book.bookshop == 'Se-ed' %} selected {% endif %}>Se-ed</option>
-            <option value="Meb"{% if book.bookshop == 'Meb' %} selected {% endif %}>Meb</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label for="">ราคาวางจำหน่วย</label>
-          <input type="number" name="sale_book" id="sale_book" value ="{{book.sale_book}}" />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-    </main>
-    <footer>
-      <!-- place footer here -->
-    </footer>
-    <!-- Bootstrap JavaScript Libraries -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-      crossorigin="anonymous"
-    ></script>
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+<body>
+  <header class="container">
+    <nav>
+      <a href="/" class="btn btn-primary mt-5">Back</a>
+    </nav>
+  </header>
+  <main class="container">
+    <h1 class="my-3">Edit Book</h1>
+    <form action="#" method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="book_name_th">ชื่อหนังสือ (ภาษาไทย)</label>
+        <input type="text" class="form-control" name="book_name_th" id="book_name_th" value="{{ book.book_name_th }}" />
+      </div>
+      <div class="mb-3">
+        <label for="book_name_en">ชื่อหนังสือ (ภาษาอังกฤษ)</label>
+        <input type="text" class="form-control" name="book_name_en" id="book_name_en" value="{{ book.book_name_en }}" />
+      </div>
+      <div class="mb-3">
+        <label for="number_si">หมายเลข ISBN</label>
+        <input type="text" class="form-control" name="number_si" id="number_si" value="{{ book.number_si }}" />
+      </div>
+      <div class="mb-3">
+        <label for="datetime">วันที่และเวลาที่ตีพิมพ์</label>
+        <input type="datetime-local" class="form-control" name="datetime" id="datetime"
+          value="{{ book.datetime|date:'Y-m-d\TH:i' }}" />
+      </div>
+      <div class="mb-3">
+        <label for="detail_book">รายละเอียดเรื่องย่อของหนังสือ</label>
+        <input type="text" class="form-control" name="detail_book" id="detail_book" value="{{ book.detail_book }}" />
+      </div>
+      <div class="mb-3">
+        <label for="bookshop">สถานที่ซื้อ</label>
+        <select class="form-select" name="bookshop" id="bookshop">
+          <option value="B2S" {% if book.bookshop == 'B2S' %} selected {% endif %}>B2S</option>
+          <option value="Inthon" {% if book.bookshop == 'Inthon' %} selected {% endif %}>นายอินทรย์</option>
+          <option value="Se-ed" {% if book.bookshop == 'Se-ed' %} selected {% endif %}>Se-ed</option>
+          <option value="Meb" {% if book.bookshop == 'Meb' %} selected {% endif %}>Meb</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="sale_book">ราคาวางจำหน่วย</label>
+        <input type="number" class="form-control" name="sale_book" id="sale_book" value="{{ book.sale_book }}" />
+      </div>
+      <button type="submit" class="btn btn-primary">SAVE</button>
+    </form>
+  </main>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+  </script>
+</body>
+
 </html>

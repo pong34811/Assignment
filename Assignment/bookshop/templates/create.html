@@ -21,37 +21,37 @@
   <body>
     <header class="container">
       <nav>
-        <a href="/">Back</a>
+        <a href="/" class="btn btn-primary mt-5">Back</a>
       </nav>
     </header>
     <main class="container">
-        <h1>Create Book</h1>
+        <h1 class="my-3">Create Book</h1>
       <form action="#" method="post">
         {% csrf_token %}
         <div class="mb-3">
           <label for="">ชื่อหนังสือ( TH )</label>
-          <input type="text" name="book_name_th" id="book_name_th" />
+          <input class="form-control" type="text" name="book_name_th" id="book_name_th" />
         </div>
         <div class="mb-3">
           <label for="">ชื่อหนังสือ( EN )</label>
-          <input type="text" name="book_name_en" id="book_name_en" />
+          <input class="form-control" type="text" name="book_name_en" id="book_name_en" />
         </div>
         <div class="mb-3">
           <label for="">หมายเลข isbn</label>
-          <input type="text" name="number_si" id="number_si" />
+          <input class="form-control" type="text" name="number_si" id="number_si" />
         </div>
         <div class="mb-3">
           <label for="">วันที่และเวลาที่ตีพิมพ์</label>
-          <input type="datetime-local" 
+          <input class="form-control" type="datetime-local" 
           name="datetime" id="datetime"/>
         </div>
         <div class="mb-3">
           <label for="">รายละเอียดเรื่องย่อของหนังสือ</label>
-          <input type="text" name="detail_book" id="detail_book" />
+          <input class="form-control" type="text" name="detail_book" id="detail_book" />
         </div>
         <div class="mb-3">
           <label for="bookshop">Choose a car:</label>
-          <select name="bookshop" id="bookshop">
+          <select class="form-select" name="bookshop" id="bookshop">
             <option value="B2S">B2S</option>
             <option value="Inthon">นายอินทรย์</option>
             <option value="Se-ed">Se-ed</option>
@@ -60,9 +60,9 @@
         </div>
         <div class="mb-3">
           <label for="">ราคาวางจำหน่วย</label>
-          <input type="number" name="sale_book" id="sale_book"/>
+          <input class="form-control" type="number" name="sale_book" id="sale_book"/>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </main>
     <footer>

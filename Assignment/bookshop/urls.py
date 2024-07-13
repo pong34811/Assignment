@@ -11,4 +11,6 @@ urlpatterns = [
     path('edit/<book_id>', views.edit),
     
     path('delete/<book_id>', views.delete),
+
+    path('view/<book_id>', views.view_book),
 ]

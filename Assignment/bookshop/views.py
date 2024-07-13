@@ -72,3 +72,7 @@ def delete (request, book_id):
     book.delete()
     messages.success(request, "Successfully DELETE")
     return redirect('/')
+
+def view_book (request, book_id):
+    book = Book.objects.get(id=book_id)
+    return render(request, 'view.html', {'book': book})
